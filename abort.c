@@ -44,35 +44,7 @@
  * Anything not defined converts to ABORT_REASON_OTHER.
  * Will need reworking if it is required to return proprietary abort codes.
  */
-BACNET_ABORT_REASON abort_convert_error_code(
-    BACNET_ERROR_CODE error_code)
-{
-    BACNET_ABORT_REASON abort_code = ABORT_REASON_OTHER;
-
-    switch (error_code) {
-        case ERROR_CODE_ABORT_BUFFER_OVERFLOW:
-            abort_code = ABORT_REASON_BUFFER_OVERFLOW;
-            break;
-        case ERROR_CODE_ABORT_INVALID_APDU_IN_THIS_STATE:
-            abort_code = ABORT_REASON_INVALID_APDU_IN_THIS_STATE;
-            break;
-        case ERROR_CODE_ABORT_PREEMPTED_BY_HIGHER_PRIORITY_TASK:
-            abort_code = ABORT_REASON_PREEMPTED_BY_HIGHER_PRIORITY_TASK;
-            break;
-        case ERROR_CODE_ABORT_SEGMENTATION_NOT_SUPPORTED:
-            abort_code = ABORT_REASON_SEGMENTATION_NOT_SUPPORTED;
-            break;
-        case ERROR_CODE_ABORT_PROPRIETARY:
-            abort_code = FIRST_PROPRIETARY_ABORT_REASON;
-            break;
-        case ERROR_CODE_ABORT_OTHER:
-        default:
-            abort_code = ABORT_REASON_OTHER;
-            break;
-    }
-
-    return (abort_code);
-}
+s
 
 /* encode service */
 int abort_encode_apdu(
